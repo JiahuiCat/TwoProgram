@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <!-- 重置浏览器样式 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+</head>
+
+<body>
+    <audio id="audio" class="audio" src=""></audio>
+    
+    <!-- 背景 -->
+    <div class="bg"></div>
+    <div class="box">
+        <!-- 顶端页面布局 -->
+        <div class="system">
+             <i class="fa fa-feed d"></i>
+             <i class="fa fa-child d"></i>
+        </div>
+
+        <!-- 列表 -->
+        <div class="boxList">
+            <ul class="list" id="list">
+                <li class="clearfix" data-url="./music/gem.mp3" data-play="false">
+                    <div class="music-img fl">
+                        <img class="auto-img" src="./images/dengziqi.jpg" />
+                    </div>
+                    <div class="music-info fl">
+                        <div class="music-name">
+                            <div class="one-text">喜欢你</div>
+                        </div>
+                        <div class="music-singer">
+                            <span>歌手:</span><span class="singer">邓紫棋</span>
+                        </div>
+                    </div>
+                    <div class="music-play fl">
+                        <i class="fa fa-play Fp"></i>
+                    </div>
+                </li>
+                
+                <li class="clearfix" data-url="./music/liudehua_shiqisui.mp3" data-play="false">
+                    <div class="music-img fl">
+                        <img class="auto-img" src="./images/liudehua.jpg" />
+                    </div>
+                    <div class="music-info fl">
+                        <div class="music-name">
+                            <div class="one-text">17岁</div>
+                        </div>
+                        <div class="music-singer">
+                            <span>歌手:</span><span class="singer">刘德华</span>
+                        </div>
+                    </div>
+                    <div class="music-play fl">
+                        <i class="fa fa-play Fp"></i>
+                    </div>
+                </li>
+
+                <li class="clearfix" data-url="./music/liuziling_nizenmeshedewonanguo.mp3" data-play="false">
+                    <div class="music-img fl">
+                        <img class="auto-img" src="./images/liuziling.jpg" />
+                    </div>
+                    <div class="music-info fl">
+                        <div class="music-name">
+                            <div class="one-text">你怎么舍得我难过</div>
+                        </div>
+                        <div class="music-singer">
+                            <span>歌手:</span><span class="singer">刘紫玲</span>
+                        </div>
+                    </div>
+                    <div class="music-play fl">
+                        <i class="fa fa-play Fp"></i>
+                    </div>
+                </li>
+
+                <li class="clearfix" data-url="./music/liangjingru_nuannuan.mp3" data-play="false">
+                    <div class="music-img fl">
+                        <img class="auto-img" src="./images/liangjingru.jpg" />
+                    </div>
+                    <div class="music-info fl">
+                        <div class="music-name">
+                            <div class="one-text">暖暖(Live)</div>
+                        </div>
+                        <div class="music-singer">
+                            <span>歌手:</span><span class="singer">梁静茹</span>
+                        </div>
+                    </div>
+                    <div class="music-play fl">
+                        <i class="fa fa-play Fp"></i>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- 末端盒子 -->
+            <div class="musicBox" id="musicControl">
+                <!-- 音乐进度条 -->
+                <div class="controlBox">
+
+                        <div id="progress" class="progress fl">
+                            <!-- 未激活层 -->
+                            <div class="color not-active" id="progressParent"></div>
+                            <!--  激活层  -->
+                            <div id="colorLine" class="color-line color"></div>
+                            <!-- 滑块层 -->
+                            <div id="mask" class="mask"></div>
+                            <!-- 绑定事件层 -->
+                            <div id="layer" class="layer"></div>
+
+                        </div>
+                        <div id="currentTime" class="time">00:00</div>
+                    </div>
+                            
+                <!-- 控制台 -->
+                    <div class="controls-status">
+                        <div class="left fl">
+                            <div class="singer-img fl" id="singerImg">
+                                <div class="img-two">
+                                    <!-- 点击头像时暂停 -->
+                                    <img  id="stop" class="auto-img" src="./images/dengziqi.jpg" />
+                                </div>
+                            </div>
+                            <!-- 按钮 -->
+                            <div class="play-mode fl" id="playMode" data-mode="exchange" data-icon="fa-exchange">
+                                <!-- 图标内图片 -->
+                                <div class="play-mode-icon ic">
+                                    <i class="fa fa-exchange p" id="replay"></i>
+                                    <div class="play-mode-more" id="playModeMore">
+                                        <div data-mode="exchange" data-icon="fa-exchange"><i class="fa fa-exchange"></i></div>
+                                        <div data-mode="loop" data-icon="fa-refresh"><i class="fa fa-refresh"></i></div>
+                                        <div data-mode="random" data-icon="fa-random"><i class="fa fa-random"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="middle fl">
+                                <div class="prev fl" id="prev">
+                                    <div class="prev-icon ic" id="next-song">
+                                        <i class="fa fa-backward prev-i p"></i>
+                                 </div>
+                                </div>
+                                <div class="playing fl">
+                                    <div class="playing-icon">
+                                     <i class="fa fa-play playing-i p" id="play"></i>
+                                    </div>
+                                </div>
+                             <div class="next fl" id="next">
+                                    <div class="prev-icon ic">
+                                     <i class="fa fa-forward prev-i p"></i>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="right fl">
+                    <div class="volume">
+                        <div class="volume-icon ic">
+                            <i class="fa fa-volume-up p i" id="YL"></i>
+                            <div class="modify-volume adjust" id="modifyVolume">
+                                <!-- 未激活层 -->
+                                <div id="volumeNotActive" class="volume-not-active"></div>
+
+                                <!-- 激活层 -->
+                                <div id="volumeActive" class="volume-active"></div>
+
+                                <!-- 滑块层 -->
+                                <div id="volumeMask" class="volume-mask"></div>
+
+                                <!-- 绑定事件层 -->
+                                <div id="volumeLayer" class="volume-layer"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- 写真面板 -->
+            <div id="photography" class="photography">
+                 <div id="photo" class="photo"></div>
+                <div class="circle"></div>
+                <div id="close" class="close">
+                     <i class="fa fa-times-circle"></i>
+                 </div>
+            </div>
+            
+    </div>
+                
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/index.js"></script> -->
+    <script type="text/javascript" src="js/musicControl.js"></script>
+</body>
+
+</html>
